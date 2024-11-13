@@ -12,7 +12,8 @@ export class PropertyService {
 
     constructor( 
         private readonly configService:ConfigService,
-        private readonly scraperService: PropertyScraperService
+        private readonly scraperService: PropertyScraperService,
+        private readonly analysisService: AnalysisBaseService
     ){
     }
 
@@ -20,11 +21,10 @@ export class PropertyService {
         searchParams: SearchPropertyDto
       ): Promise<AnalysisResult[]> {
         const properties = await this.scraperService.searchAllNeighborhoods(searchParams);
-        // Analizar cada propiedad
         const analyzedProperties = properties.map(property => ({
             property,
-            analysis: this.AnalysisBaseService.analyzeProperty(property)
-        }));
+            analysis: this.analysisService.analyzeProperty(property)
+          }));
     
         // Ordenar por score
         return analyzedProperties.sort((a, b) => b.analysis.score - a.analysis.score);

@@ -15,8 +15,11 @@ export default registerAs('config', () => ({
       'sec-fetch-dest': 'empty',
       'sec-fetch-mode': 'cors',
       'sec-fetch-site': 'same-origin',
-      'x-api-key': process.env.API_KEY || 'P1MfFHfQMOtL16Zpg36NcntJYCLFm8FqFfudnavl',
-      'x-requested-with': 'XMLHttpRequest'
+      'x-api-key': process.env.API_KEY || 'P1MfFHfQMOtL16Zpg36NcntJYCLFm8FqFfudnavl',  
+      'x-requested-with': 'XMLHttpRequest',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
+      'Origin': 'https://www.metrocuadrado.com',
+      'Referer': 'https://www.metrocuadrado.com'
     }
   },
 
