@@ -51,7 +51,11 @@ export class PropertyScraperService {
       }
     }
 
-    return allProperties;
+    //remove duplicates
+    const uniqueProperties = allProperties.filter((property, index, self) =>
+      index === self.findIndex((p) => p.code === property.code)
+    );
+    return uniqueProperties;
   }
 
   private async searchByNeighborhoodWithRetry(

@@ -69,31 +69,70 @@ $ npm install -g mau
 $ mau deploy
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+# Real Estate Analyzer
 
-## Resources
+Real Estate Analyzer is an application for analyzing real estate properties.
 
-Check out a few resources that may come in handy when working with NestJS:
+## Production
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+To run the application in production:
 
-## Support
+### Build the image
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+```bash
+docker-compose build
+```
 
-## Stay in touch
+### Start the containers
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```bash
+docker-compose up -d
+```
 
-## License
+### View the logs
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+```bash
+docker-compose logs -f
+```
+
+### Stop the containers
+
+```bash
+docker-compose down
+```
+
+## Useful Commands for Debugging
+
+```bash
+# Check the status of the containers
+docker-compose ps
+
+# Access the container
+docker exec -it real-estate-analyzer sh
+
+# View real-time logs of the app
+docker-compose logs -f app
+
+# Restart the container
+docker-compose restart app
+```
+
+## Development
+
+To start the application in development mode:
+
+```bash
+docker-compose -f docker-compose.dev.yml up -d
+```
+
+### View logs in development
+
+```bash
+docker-compose -f docker-compose.dev.yml logs -f
+```
+
+### Usage
+
+```bash
+http://localhost:3000/properties/search?propertyType=apartamento&businessType=venta&status=usado&minPrice=100000000&maxPrice=200000000&size=50&includeNew=false
+```
