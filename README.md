@@ -123,6 +123,8 @@ To start the application in development mode:
 
 ```bash
 docker-compose -f docker-compose.dev.yml up -d
+docker-compose -f docker-compose.dev.yml down
+
 ```
 
 ### View logs in development
