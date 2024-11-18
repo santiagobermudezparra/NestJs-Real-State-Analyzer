@@ -4,14 +4,13 @@ services:
   app:
     build: 
       context: .
-      dockerfile: Dockerfile
-    container_name: real-estate-analyzer
+      dockerfile: Dockerfile  # Usando el nombre de archivo actual
+      target: production
+    container_name: real-estate-analyzer-prod
     ports:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-    volumes:
-      - .env:/app/.env
     restart: unless-stopped
     networks:
       - app-network

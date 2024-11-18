@@ -122,11 +122,16 @@ docker-compose restart app
 To start the application in development mode:
 
 ```bash
-docker-compose -f docker-compose.dev.yml up -d
-docker-compose -f docker-compose.dev.yml down
-
+docker compose -f docker-compose.dev.yml up --build
+docker-compose -f docker-compose.test.yml up --build
+docker-compose -f docker-compose.prod.yml up -d --build
 ```
 
+```bash
+docker compose -f docker-compose.dev.yml down  # para desarrollo
+docker compose -f docker-compose.test.yml down  # para testing
+docker compose -f docker-compose.prod.yml down  # para producción
+```
 ### View logs in development
 
 ```bash
