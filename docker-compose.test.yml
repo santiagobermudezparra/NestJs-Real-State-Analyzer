@@ -1,11 +1,11 @@
-# docker-compose.test.yml
 version: '3.8'
 
 services:
   test:
     build: 
       context: .
-      target: testing  # Usa el stage de testing
+      target: testing
+    image: xwataryx/real-estate-analyzer:test
     container_name: real-estate-analyzer-test
     environment:
       - NODE_ENV=test

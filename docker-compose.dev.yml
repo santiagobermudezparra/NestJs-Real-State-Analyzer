@@ -4,8 +4,9 @@ services:
   app:
     build: 
       context: .
-      dockerfile: Dockerfile  # Cambiado a tu nombre de archivo actual
+      dockerfile: Dockerfile
       target: development
+    image: xwataryx/real-estate-analyzer:dev
     container_name: real-estate-analyzer-dev
     ports:
       - "3000:3000"

@@ -4,8 +4,9 @@ services:
   app:
     build: 
       context: .
-      dockerfile: Dockerfile  # Usando el nombre de archivo actual
+      dockerfile: Dockerfile
       target: production
+    image: xwataryx/real-estate-analyzer:latest
     container_name: real-estate-analyzer-prod
     ports:
       - "3000:3000"
