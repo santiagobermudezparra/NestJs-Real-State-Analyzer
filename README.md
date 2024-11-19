@@ -138,6 +138,24 @@ docker compose -f docker-compose.prod.yml down  # para producción
 docker-compose -f docker-compose.dev.yml logs -f
 ```
 
+
+### DockerHub
+
+```bash
+Dev:
+bashCopydocker-compose -f docker-compose.dev.yml build
+docker-compose -f docker-compose.dev.yml push
+```
+```bash
+Prod:
+bashCopydocker-compose build
+docker-compose push
+```
+```bash
+testing:
+bashCopydocker-compose -f docker-compose.test.yml build
+docker-compose -f docker-compose.test.yml push
+```
 ### Usage
 
 ```bash
