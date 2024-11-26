@@ -48,6 +48,7 @@ jobs:
       run: |
         docker build \
           --target $ENV \
+          -f DockerFile \
           -t xwataryx/real-estate-analyzer:$NEW_VERSION-$TAG \
           -t xwataryx/real-estate-analyzer:$TAG \
           .
